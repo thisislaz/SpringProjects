@@ -1,0 +1,12 @@
+package com.lazaro.hellohuman;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class HumanController {
+	
+	@RequestMapping("")
+	public String index() {
+		return null;
+	}
+}

@@ -1,0 +1,5 @@
+package com.lazaro.controllerspractice;
+
+public class HomeController {
+
+}

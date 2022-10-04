@@ -1,0 +1,12 @@
+package com.lazaro.daikichi;
+
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class DaikichiHomeController {
+	
+	@RequestaMapping("")
+	public String index() {
+		return null;
+	}
+}

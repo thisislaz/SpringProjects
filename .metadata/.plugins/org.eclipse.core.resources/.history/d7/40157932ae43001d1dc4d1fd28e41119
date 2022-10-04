@@ -1,0 +1,11 @@
+package com.lazaro.controllerspractice;
+
+
+@RestController
+public class HomeController {
+	
+	@RequestMapping("/")
+	pulibc String hello() {
+		return "Hello World!";
+	}
+}
