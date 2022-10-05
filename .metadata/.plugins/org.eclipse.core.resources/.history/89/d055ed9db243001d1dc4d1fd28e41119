@@ -1,6 +1,0 @@
-package com.lazaro.hellohuman;
-
-@requestController
-public class HumanController {
-
-}
