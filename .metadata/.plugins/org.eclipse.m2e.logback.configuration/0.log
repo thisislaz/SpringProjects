@@ -3216,3 +3216,4 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact org.webjars:p
 2022-10-06 03:37:00,360 [Worker-76: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-10-06 03:37:00,360 [Worker-76: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-10-06 03:37:00,360 [Worker-76: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\cuban\OneDrive\Desktop\SpringProjects\hopper\src\test\resources
+2022-10-06 13:12:20,673 [Worker-8: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
