@@ -1,12 +1,20 @@
 @charset "ISO-8859-1";
 
-body{
-	background-color: black;
-	color: white;
 
-}
 
 a{
 	font-size: 30px;
 	margin-right: 20px;
+}
+
+.container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: green;
+	margin-top: 150px;
+}
+
+.container #date{
+	color: blue;
 }

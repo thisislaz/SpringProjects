@@ -42,7 +42,10 @@ public class HomeController {
 	
 	@RequestMapping("/date")
 	public String timePage(Model model) {
-		model.addAttribute("date", new Date());
+		Date date = new Date();
+		SimpleDateFormat formatTime = new SimpleDateFormat("EEEE, dd MMMM, yyyy");
+		String time = formatTime.format(date);
+		model.addAttribute("date", time);
 		return "time.jsp";
 	}
 }

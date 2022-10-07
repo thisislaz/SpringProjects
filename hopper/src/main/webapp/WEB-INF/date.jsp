@@ -12,8 +12,8 @@
 	<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body onload="timePage()">
-	
-	<h1><c:out value="${ date }"></c:out> </h1>
-	
+	<div class="container">
+		<h1><c:out value="${ date }"></c:out> </h1>
+	</div>
 </body>
 </html>
