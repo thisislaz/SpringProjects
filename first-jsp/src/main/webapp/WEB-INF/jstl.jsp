@@ -43,6 +43,6 @@
 		</c:forEach>
 	</ul>
 	
-	
+	<button class="btn btn-success">Testing BootStrap</button>
 </body>
 </html>

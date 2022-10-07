@@ -1,5 +1,10 @@
 @charset "ISO-8859-1";
 
+html{
+	background-color:black;
+	color: white;
+}
+
 body{
 	background-color: black;
 	color: white;
@@ -16,3 +21,4 @@ p{
 ul{
 	list-style: none;
 }
+

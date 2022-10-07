@@ -6,6 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.lazaro.jspdemo.models.Assignment;
+
 @Controller
 public class HomeController {
 
@@ -42,11 +44,23 @@ public class HomeController {
 		model.addAttribute("jspUsers", users);
 		
 		//the following is an enchanced for loop that is similar to how it is written in the jsp file
-		for(String eachUser : users) {
-			System.out.println(eachUser);
-		}
+//		for(String eachUser : users) {
+//			System.out.println(eachUser);
+//		}
 		
 		return "jstl.jsp";
+	}
+	
+	@RequestMapping("/assignmentLoop")
+	public String assignmentLoop(Model model) {
+		ArrayList<Assignment> assignmentList = new ArrayList<>();
+		assignmentList.add(new Assignment("fruity loop", 7));
+		assignmentList.add(new Assignment("sum otha assignment", 9));
+		assignmentList.add(new Assignment("flex-box", 3));
+		
+		model.addAttribute("assignmentList", assignmentList);
+		
+		return "assignmentLoop.jsp";
 	}
 	
 }
