@@ -16,7 +16,7 @@
 	
 	<div class="d-block p-2 bd-highlight" >
 		<h1 class="container">login</h1>
-		
+		<p><c:out value="${ error }"></c:out></p>
 		<form class="d-block p-2 bd-highlight" action="/login" method="POST">
 			<label>Email: </label>
 			<input type="text" name="email" />

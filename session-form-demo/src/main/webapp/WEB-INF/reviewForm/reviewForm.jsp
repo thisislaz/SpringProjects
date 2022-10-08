@@ -15,6 +15,7 @@
 
 	<h1>Review Form</h1>
 	<form action="/process" method="post">
+	<input type="hidden" name="reviewer" value="Alex Miller" />
 		<div>
 			<label>Product</label>
 			<input type="text" name="product" />
@@ -26,9 +27,9 @@
 		<div>
 			<label > Rating</label>
 			<input type="number" name="rating" />
+			<p><c:out value="${error }"></c:out></p>
 		</div>
 		<button type="submit">Submit your review</button>
 	</form>
-
 </body>
 </html>

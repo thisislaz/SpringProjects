@@ -1,7 +1,10 @@
 package com.lazaro.sessionformdemo.controllers;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpSession;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class HomeController {
@@ -65,12 +69,19 @@ public class HomeController {
 			@RequestParam("product") String product,
 			@RequestParam("comments") String comments,
 			@RequestParam("rating") Integer rating,
-			HttpSession session
+			@RequestParam("reviewer") String reviewer,
+			HttpSession session,
+			RedirectAttributes redirectAttributes
 			) {
 		//process the info
+		if(rating < 0) {
+			redirectAttributes.addFlashAttribute("error", "Rating must be positive");
+			return "redirect:/reviewForm";
+		}
 		session.setAttribute("product", product);
 		session.setAttribute("comments", comments);
 		session.setAttribute("rating", rating);
+		session.setAttribute("reviewer", reviewer);
 		
 		return "redirect:/displayReview";
 	}
@@ -79,5 +90,38 @@ public class HomeController {
 	public String displayReview() {
 		return"/reviewForm/reviewFormDisplay.jsp";
 	}
+	
+	//-------------------------RESERVATIONFORM (DATE/TIME, POST METHOD) --------------------------
+	//Render the form
+	@GetMapping("/reserve")
+	public String renderReserveForm() {
+		return "/reservationForm/reservationForm.jsp";
+	}
+	
+	//process the form
+	@PostMapping("/processReservation")
+	public String processReservation(
+			@RequestParam("name") String name,
+			@RequestParam("numOfPeople") Integer numOfPeople,
+			@RequestParam("resDate") @DateTimeFormat(pattern="yyyy-MM-dd") Date resDate,
+			@RequestParam("resTime") @DateTimeFormat(pattern="HH:mm") Date resTime,
+			HttpSession session
+			) {
+		
+		session.setAttribute("name", name);
+		session.setAttribute("numOfPeople", numOfPeople);
+		session.setAttribute("resDate", resDate);
+		session.setAttribute("resTime", resTime);
+		
+		return "redirect:/reserveResult";
+	}
+	
+	//display the form
+	@GetMapping("/reserveResult")
+	public String displayReservationResult() {
+		return "reservationForm/reservationDisplay.jsp";
+	}
+	
+	
 	
 }

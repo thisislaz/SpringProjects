@@ -17,6 +17,7 @@
 	<h4>Product: <c:out value="${ product }"></c:out></h4>
 	<h4>Comments: <c:out value="${ comments }"></c:out></h4>
 	<h4>Rating: <c:out value="${ rating }"></c:out></h4>
+	<h4>Reviewed by: <c:out value="${ reviewer }"></c:out></h4>
 	
 </body>
 </html>
