@@ -40,6 +40,6 @@
 	         </c:forEach>
 	    </tbody>
 	</table>
-
+	<a href="/books/new" class="btn btn-primary">Add a new Book</a>
 </body>
 </html>
