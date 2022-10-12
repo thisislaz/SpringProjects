@@ -27,7 +27,11 @@
 	    <tbody> <!-- loop over all the books to show the details as in the wireframe! -->
 	         <c:forEach var="eachBook" items="${ books }">
 	         <tr>
-	         	<td><c:out value="${ eachBook.id }"></c:out></td>
+	         	<td>
+	         		<a href="/books/${ eachBook.id }/edit">
+	         			<c:out value="Edit ${ eachBook.id } "></c:out>
+	         		</a>
+	         	</td>
 	         	<td>
 	         		
 	         		<a href="/books/${ eachBook.id }">
@@ -41,5 +45,6 @@
 	    </tbody>
 	</table>
 	<a href="/books/new" class="btn btn-primary">Add a new Book</a>
+	
 </body>
 </html>

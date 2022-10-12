@@ -23,6 +23,7 @@
 				<th>Expense</th>
 				<th>Vendor</th>
 				<th>Amount</th>
+				<th>Actions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -31,6 +32,7 @@
 				<td><c:out value="${ eachExpense.expenseName }"></c:out></td>
 				<td><c:out value="${ eachExpense.vendor }"></c:out></td>
 				<td><c:out value="$ ${ eachExpense.amount }"></c:out></td>
+				<td><a href="/expenses/edit/${eachExpense.id}">Edit</a></td>
 			</tr>
 			</c:forEach>
 		</tbody>

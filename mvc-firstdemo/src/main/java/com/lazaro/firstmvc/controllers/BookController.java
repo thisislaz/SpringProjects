@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.lazaro.firstmvc.models.Book;
 import com.lazaro.firstmvc.services.BookService;
@@ -55,5 +57,21 @@ public class BookController {
 			return "redirect:/books";
 	}
 	
+	@RequestMapping("/books/{id}/edit")
+    public String edit(@PathVariable("id") Long id, Model model) {
+        Book book = bookService.findBook(id);
+        model.addAttribute("book", book);
+        return "/books/edit.jsp";
+    }
+    
+    @RequestMapping(value="/books/{id}", method=RequestMethod.PUT)
+    public String update(@Valid @ModelAttribute("book") Book book, BindingResult result) {
+        if (result.hasErrors()) {
+            return "/books/edit.jsp";
+        } else {
+            bookService.createBook(book);
+            return "redirect:/books";
+        }
+    }
 	
 }
