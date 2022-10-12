@@ -32,7 +32,7 @@ public class Expense {
     @Min(1)
     private Double amount;
     @NotNull
-    @Size(min = 5)
+    @Size(min = 5, message="Description must not be blank")
     private String description;
     // This will not allow the createdAt column to be updated after creation
     @Column(updatable=false)

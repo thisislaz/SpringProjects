@@ -19,13 +19,11 @@ public class ExpenseController {
 	@Autowired
 	ExpenseService expenseService;
 	
-	@GetMapping("/expenses/new")
-	public String newExpenseView(@ModelAttribute("expense")Expense expense) {
-		return "/expenses.jsp";
-	}
-	
 	@GetMapping("/expenses")
-	public String index(Model model) {
+	public String index(
+			@ModelAttribute("expense")Expense expense,
+			Model model
+			) {
 		model.addAttribute("expenses", expenseService.allExpenses());
 		return "/expenses.jsp";
 	}
@@ -39,6 +37,6 @@ public class ExpenseController {
 			return "/expenses.jsp";
 		}
 		expenseService.createExpense(expense);
-		return "redirect:/expenses/new";
+		return "redirect:/expenses";
 	}
 }

@@ -28,9 +28,9 @@
 		<tbody>
 			<c:forEach var="eachExpense" items="${ expenses }">
 			<tr>
-				<td><c:out value="${ expense.expenseName }"></c:out></td>
+				<td><c:out value="${ eachExpense.expenseName }"></c:out></td>
 				<td><c:out value="${ eachExpense.vendor }"></c:out></td>
-				<td><c:out value="${ eachExpense.amount }"></c:out></td>
+				<td><c:out value="$ ${ eachExpense.amount }"></c:out></td>
 			</tr>
 			</c:forEach>
 		</tbody>
