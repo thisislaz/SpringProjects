@@ -41,6 +41,10 @@
     </p>    
     <input type="submit" value="Submit"/>
 </form:form>
+<form action="/books/${book.id}" method="post">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+</form>
 
 </body>
 </html>

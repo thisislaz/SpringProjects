@@ -1,5 +1,7 @@
 package com.lazaro.savetravels.controllers;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,4 +65,24 @@ public class ExpenseController {
 		}
 	}
 	
+	@RequestMapping(value="/expenses/{id}", method=RequestMethod.DELETE)
+	public String destory(@PathVariable("id") Long id) {
+		expenseService.deleteExpense(id);
+		return "redirect:/expenses";
+	}
+	
+	@GetMapping("/expenses/{id}")
+	public String viewOne(@PathVariable("id") Long id, Model model) {
+		Expense expense = expenseService.findExpense(id);
+		List<Expense> expenses = expenseService.allExpenses();
+		
+		model.addAttribute("expenses", expenses);
+		model.addAttribute("expense", expense);
+		return "viewone.jsp";
+	}
+	
 }
+
+
+
+

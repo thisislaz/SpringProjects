@@ -29,7 +29,7 @@
     <p>
         <form:label path="vendor">Vendor: </form:label>
         <form:errors path="vendor"/>
-        <form:textarea path="vendor"/>
+        <form:input path="vendor"/>
     </p>
     <p>
         <form:label path="amount">Amount: </form:label>

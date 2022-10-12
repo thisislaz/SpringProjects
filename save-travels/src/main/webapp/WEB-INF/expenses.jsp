@@ -29,10 +29,21 @@
 		<tbody>
 			<c:forEach var="eachExpense" items="${ expenses }">
 			<tr>
-				<td><c:out value="${ eachExpense.expenseName }"></c:out></td>
+				<td>
+					<a href="/expenses/${eachExpense.id }">
+						<c:out value="${ eachExpense.expenseName }"></c:out>
+					</a>
+				</td>
 				<td><c:out value="${ eachExpense.vendor }"></c:out></td>
 				<td><c:out value="$ ${ eachExpense.amount }"></c:out></td>
-				<td><a href="/expenses/edit/${eachExpense.id}">Edit</a></td>
+				<td>
+					<a class="btn btn-primary" href="/expenses/edit/${eachExpense.id}">Edit</a>
+					<form class="d-inline-block" action="/expenses/${eachExpense.id }" method="post">
+						<input type="hidden" name="_method" value="delete" />
+						<input class="btn btn-danger" type="submit" value="Delete" />
+					</form>
+				</td>
+				
 			</tr>
 			</c:forEach>
 		</tbody>
