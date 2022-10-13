@@ -17,8 +17,57 @@
 </head>
 <body>
 
-	<h1>Dashboard</h1>
-	<a href="/add/users"> Add a new user  |</a>
+	<h1>Donation Dashboard</h1>
+	<a href="/add/users"> Add a new user</a> |
 	<a href="/add/donations"> Add a new donation</a>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Donation</th>
+				<th>Quantity</th>
+				<th>Donor</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+			<c:forEach var="eachDonation" items="${ donationList }">
+				<tr>
+					<td><c:out value="${ eachDonation.id }"></c:out></td>
+					<td><c:out value="${ eachDonation.donationName }"></c:out></td>
+					<td><c:out value="${ eachDonation.quantity }"></c:out></td>
+					<td><c:out value="${ eachDonation.donor.username }"></c:out></td>
+					<td><a href="/edit/donations/${ eachDonation.id }">Edit</a></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+	
+	<h1>User Dashboard</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Username</th>
+				<th>Email</th>
+				<th>Total Donations</th>
+			</tr>
+		</thead>
+		<tbody>
+			
+			<c:forEach var="eachUser" items="${ userList }">
+				<tr>
+					<td><c:out value="${ eachUser.id }"></c:out></td>
+					<td><a href="/users/${ eachUser.id }"><c:out value="${ eachUser.username }"></c:out></a></td>
+					<td><c:out value="${ eachUser.email }"></c:out></td>
+					<td><c:out value="${ eachUser.donations.size()}"></c:out></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>	
+	
 </body>
 </html>
+
+
